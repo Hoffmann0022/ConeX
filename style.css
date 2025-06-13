@@ -398,9 +398,9 @@ main{
 .faq-section {
   display: flex;
   margin-top: 128px;
+  width: 80vw;
   margin-left: 5%;
   margin-right: 5%;
-  width: 100%;
   max-width: 2000px;
   flex-direction: column;
   align-items: center;
@@ -480,7 +480,7 @@ main{
 
 .footer-content {
   display: flex;
-  width: 100%;
+  width: 100vw;
   max-width: 1041px;
   align-items: flex-start;
   gap: 20px;
@@ -488,7 +488,10 @@ main{
   color: rgba(47, 47, 47, 1);
   font-weight: 400;
   letter-spacing: 0.48px;
-  justify-content: space-between;
+  justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  flex-wrap: wrap;
 }
 
 .footer-logo {
@@ -501,6 +504,8 @@ main{
   font-weight: 700;
   white-space: nowrap;
   justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .footer-nav {
@@ -510,6 +515,8 @@ main{
   align-items: flex-start;
   font-size: 15px;
   line-height: 1;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .footer-link {
@@ -532,6 +539,8 @@ main{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .footer-tagline {
@@ -563,14 +572,22 @@ main{
 @media (max-width: 991px) {
   .navigation {
     max-width: 100%;
+    justify-content: space-around;
+    padding-right: 0%;
+    padding-left: 0%;
   }
 
+  .navigation .cta-button{
+    display: none;
+  } 
   .nav-container {
-    max-width: 100%;
+    max-width: 100vw;
+    justify-content: space-between;
   }
 
   .logo {
     white-space: initial;
+    width: 100%;
   }
 
   .cta-button {
@@ -596,6 +613,8 @@ main{
   .hero-text-container {
     max-width: 100%;
     margin-top: 40px;
+    align-items: center;
+    text-align: center;
   }
 
   .hero-title {
@@ -609,7 +628,7 @@ main{
   }
 
   .hero-image {
-    max-width: 100%;
+    max-width: 70%;
     margin-top: 12px;
   }
 
@@ -642,7 +661,9 @@ main{
   }
 
   .audience-column {
-    width: 100%;
+    width: 90vw;
+    margin-right: 5%;
+    margin-left: 5%;
   }
 
   .audience-items {
@@ -670,9 +691,13 @@ main{
   }
 
   .audience-image {
-    max-width: 100%;
+    max-width: 70%;
     margin-top: 40px;
   }
+
+.about-section{
+  margin-top: 60px;
+}
 
   .about-section .section-title {
     margin-top: 40px;
