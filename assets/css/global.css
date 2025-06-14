@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, Roboto, Helvetica, sans-serif;
+  letter-spacing: 0.48px;
+  color: rgb(32, 32, 32);
+  overflow-x: hidden;
+  background-color: rgb(226, 224, 224);
+}
