@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConeX - Digital learning for seniors</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/lobby.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon"
+        href="https://cdn.builder.io/api/v1/image/assets/TEMP/2e74e55393055143a71be38e214b8b4b47775c82?placeholderIfAbsent=true&apiKey=79765d7744e34955aa563ba13d496390">
+</head>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <main>
+        <div class="conteiner_lobby">
+            <i class="bi bi-x-lg"></i>
+            <img class="logo" src="../img/IMAGE-lobby.png" alt="">
+
+            <a class="cta-button" href="#"><span>+</span>New player</a>
+
+            <div class="jogadores">
+
+            </div>
+
+            <a class="play" href="./game.html">Play</a>
+        </div>
+
+
+        <a class="footer-button" href="./duvidas.html">Need help?</a>
+
+
+        <!-- PopUp para botar o nome -->
+        <div class="player">
+            <div class="conteiner_player">
+                <h3 class="player_title">Enter Your Name</h3>
+                <input type="text" id="playerName" placeholder="Enter your name" maxlength="30">
+                <button>Enter</button>
+            </div>
+        </div>
+        <footer></footer>
+    </main>
+</body>
+
+<script src="../js/lobby.js"></script>
+
+<script>
+    // Pegando o nome da página atual
+    const paginaAtual = window.location.pathname.split('/').pop();
+
+    // Se for uma das páginas válidas, salva no localStorage
+    if (['lobby.html', 'pitStop.html', 'game.html'].includes(paginaAtual)) {
+        localStorage.setItem('paginaValidaAnterior', paginaAtual);
+        console.log('Página salva no localStorage:', paginaAtual);
+    }
+</script>
+
+</html>

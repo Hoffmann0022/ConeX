@@ -1,0 +1,109 @@
+main {
+    width: 100vw;
+    height: 100vh;
+    padding: 5vh 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.button {
+    background-color: #000000;
+    color: white;
+    padding: 12px 24px;
+    margin: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #333333;
+}
+
+.grid-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 30px;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.grid div {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    border-radius: 20px;
+}
+
+/* Cores do design */
+.gray { background-color: #9b9a9a; }
+.blue { background-color: #73D2FA; }
+.green { background-color: #B7E649; }
+.pink { background-color: #F49E7F; }
+.orange { background-color: #FF3C00; }
+.yellow-orange { background-color: #FFBD43; }
+
+
+.winner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF8800;
+    color: white;
+    font-size: 22px;
+    letter-spacing: 20px;
+    font-weight: bold;
+    width: 60px;
+    height: 630px;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    margin-left: 30px;
+    border-radius: 8px;
+}
+
+.footer-button {
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 10px;
+    padding: 20px 50px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    text-decoration: none;
+    transition: all .4s ease-in-out;
+    position: fixed;
+    bottom: 10px;
+}
+
+.footer-button:hover {
+    text-decoration: underline;
+}
+
+footer {
+    width: 100vw;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 1);
+    position: fixed;
+    bottom: 0;
+}
+

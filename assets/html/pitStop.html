@@ -17,12 +17,24 @@
     <main>
         <img class="logo" src="../img/Conex.png" alt="">
 
-        <a class="cta-button" href="#">Start Game</a>
+        <a class="cta-button" href="./lobby.html">Start Game</a>
 
         <a class="footer-button" href="./duvidas.html">Need help?</a>
 
         <footer></footer>
     </main>
 </body>
+
+<script>
+  // Pegando o nome da página atual
+  const paginaAtual = window.location.pathname.split('/').pop();
+
+  // Se for uma das páginas válidas, salva no localStorage
+  if (['lobby.html', 'pitStop.html', 'game.html'].includes(paginaAtual)) {
+    localStorage.setItem('paginaValidaAnterior', paginaAtual);
+    console.log('Página salva no localStorage:', paginaAtual);
+  }
+</script>
+
 
 </html>
