@@ -1,109 +1,174 @@
+/* Estrutura principal */
 main {
-    width: 100vw;
-    height: 100vh;
-    padding: 5vh 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
+  width: 100vw;
+  height: 100vh;
+  padding-left: 18px;
+  padding-right: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
 }
 
+/* Botão principal */
 .button {
-    background-color: #000000;
-    color: white;
-    padding: 12px 24px;
-    margin: 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    border-radius: 5px;
+  background-color: #000000;
+  color: white;
+  padding: 12px 24px;
+  margin: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 5px;
 }
 
 .button:hover {
-    background-color: #333333;
+  background-color: #333333;
 }
 
+/* Container da grade e da área Winner */
 .grid-container {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
 }
 
+/* Grade das casas */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(12, 50px);
-    grid-template-rows: repeat(8, 50px);
-    gap: 30px;
-    padding: 8px;
-    border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 960px;
 }
 
+/* Cada casa */
 .grid div {
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-    border-radius: 20px;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  border-radius: 20px;
 }
 
-/* Cores do design */
-.gray { background-color: #9b9a9a; }
-.blue { background-color: #73D2FA; }
-.green { background-color: #B7E649; }
-.pink { background-color: #F49E7F; }
-.orange { background-color: #FF3C00; }
-.yellow-orange { background-color: #FFBD43; }
+/* Cores das casas */
+.gray {
+  background-color: #9b9a9a;
+}
+.blue {
+  background-color: #73d2fa;
+}
+.green {
+  background-color: #b7e649;
+}
+.pink {
+  background-color: #f49e7f;
+}
+.orange {
+  background-color: #ff3c00;
+}
+.yellow-orange {
+  background-color: #ffbd43;
+}
 
-
+/* Área "Winner" */
 .winner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #FF8800;
-    color: white;
-    font-size: 22px;
-    letter-spacing: 20px;
-    font-weight: bold;
-    width: 60px;
-    height: 630px;
-    font-weight: bold;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    margin-left: 30px;
-    border-radius: 8px;
+  background-color: #ff8800;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  height: 100%;
+  display: flex;
+  height: 636px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 120px;
 }
 
+/* Botão de ajuda */
 .footer-button {
-    background-color: rgba(0, 0, 0, 1);
-    border-radius: 10px;
-    padding: 20px 50px;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 1);
-    font-weight: 700;
-    text-align: center;
-    line-height: 1;
-    text-decoration: none;
-    transition: all .4s ease-in-out;
-    position: fixed;
-    bottom: 10px;
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 10px;
+  padding: 20px 50px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  position: fixed;
+  bottom: 10px;
 }
 
 .footer-button:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
+/* Rodapé */
 footer {
-    width: 100vw;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 1);
-    position: fixed;
-    bottom: 0;
+  width: 100vw;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 1);
+  position: fixed;
+  bottom: 0;
 }
 
+/* Responsividade */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .winner {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    letter-spacing: 5px;
+    width: 600px;
+    height: 50px;
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .winner {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    letter-spacing: 5px;
+    width: 300px;
+    height: 50px;
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
