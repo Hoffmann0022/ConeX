@@ -1,0 +1,182 @@
+[
+  {
+    "title": "CPU",
+    "description": "The 'brain' of the computer. It does all the calculations and tasks."
+  },
+  {
+    "title": "RAM",
+    "description": "Part of the memory that helps the computer be fast. It disappears when you turn it off."
+  },
+  {
+    "title": "URL",
+    "description": "It's the 'address' of a website. Example: www.conex.com.br"
+  },
+  {
+    "title": "API",
+    "description": "A bridge that helps two programs talk to each other."
+  },
+  {
+    "title": "HTML",
+    "description": "The language used to build internet pages."
+  },
+  {
+    "title": "SSD",
+    "description": "A modern and very fast type of memory where files are stored."
+  },
+  {
+    "title": "Wi-Fi",
+    "description": "A wireless connection to access the internet."
+  },
+  {
+    "title": "HTTP",
+    "description": "A protocol used to browse websites. It's at the beginning of the links."
+  },
+  {
+    "title": "APP",
+    "description": "Short for 'application,' like WhatsApp or YouTube."
+  },
+  {
+    "title": "Log in",
+    "description": "To sign in to a website or system with a username and password."
+  },
+  {
+    "title": "Log out",
+    "description": "To sign out of the system safely."
+  },
+  {
+    "title": "Set up",
+    "description": "To configure a device or an account. Example: 'Set up' a new cell phone."
+  },
+  {
+    "title": "Back up",
+    "description": "To make a copy of your files so you don't lose anything."
+  },
+  {
+    "title": "Scroll down",
+    "description": "To roll the screen down to see more content."
+  },
+  {
+    "title": "Turn on",
+    "description": "To switch on the computer, cell phone, or another device."
+  },
+  {
+    "title": "Turn off",
+    "description": "To switch off the device safely."
+  },
+  {
+    "title": "Plug in",
+    "description": "To connect a cable or charger to the device."
+  },
+  {
+    "title": "Figure out",
+    "description": "To understand how something works. Example: 'Figure out' how to use an app."
+  },
+  {
+    "title": "Firewall",
+    "description": "A 'digital wall' that protects your computer from viruses."
+  },
+  {
+    "title": "Cloud",
+    "description": "A space on the internet to save photos, videos, and documents."
+  },
+  {
+    "title": "Download",
+    "description": "To get something from the internet onto your device."
+  },
+  {
+    "title": "Upload",
+    "description": "To send files from your device to a website or app."
+  },
+  {
+    "title": "Malware",
+    "description": "A type of program that can harm your cell phone or computer."
+  },
+  {
+    "title": "Bug",
+    "description": "An error that makes a system work the wrong way."
+  },
+  {
+    "title": "Browser",
+    "description": "A program used to access the internet, like Google Chrome."
+  },
+  {
+    "title": "Software",
+    "description": "The programs that make a computer work."
+  },
+  {
+    "title": "Hardware",
+    "description": "The physical parts of a computer, like the keyboard and monitor."
+  },
+  {
+    "title": "Virtual Assistant",
+    "description": "A robot that answers questions, like Siri or Alexa."
+  },
+  {
+    "title": "Voice Recognition",
+    "description": "When a machine understands what you say. Example: 'Ok Google.'"
+  },
+  {
+    "title": "Automatic Translation",
+    "description": "A system that translates text from one language to another."
+  },
+  {
+    "title": "Smart Filter",
+    "description": "The AI chooses what to show you based on what you like."
+  },
+  {
+    "title": "Chatbot",
+    "description": "A robot that talks with you through messages, like in customer service."
+  },
+  {
+    "title": "Recommendation",
+    "description": "The AI suggests music, videos, or products based on what you have already seen."
+  },
+  {
+    "title": "Face Detection",
+    "description": "The camera recognizes your face to unlock your cell phone."
+  },
+  {
+    "title": "Auto-correction",
+    "description": "The cell phone corrects words that you type wrong."
+  },
+  {
+    "title": "Predictive Text",
+    "description": "The AI guesses what you are going to type and shows you options."
+  },
+  {
+    "title": "Teamwork",
+    "description": "Working together with other people to reach a goal."
+  },
+  {
+    "title": "Problem-Solving",
+    "description": "Finding solutions when something goes wrong."
+  },
+  {
+    "title": "Patience with Technology",
+    "description": "Being calm to learn how to use new devices."
+  },
+  {
+    "title": "Always Learning",
+    "description": "To keep learning and adapting, even when you are older."
+  },
+  {
+    "title": "Listen Carefully",
+    "description": "To understand instructions well before you act."
+  },
+  {
+    "title": "Creativity",
+    "description": "Thinking of new ways to do things."
+  },
+  {
+    "title": "Clear Communication",
+    "description": "To speak in a simple and easy-to-understand way."
+  },
+  {
+    "title": "Decision-Making",
+    "description": "Choosing what to do, even when you are not sure."
+  },
+  {
+    "title": "Empathy",
+    "description": "To put yourself in someone else's shoes, especially when they are having a hard time."
+  }
+]

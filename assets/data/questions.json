@@ -1,0 +1,252 @@
+[
+  {
+    "question": "What does a computer's CPU do?",
+    "options": ["It stores files forever.", "It processes calculations and tasks.", "It shows images on the screen.", "It manages the internet connection."],
+    "correctAnswer": "It processes calculations and tasks."
+  },
+  {
+    "question": "What is RAM?",
+    "options": ["Permanent memory.", "A security program.", "Fast, temporary memory.", "A type of network cable."],
+    "correctAnswer": "Fast, temporary memory."
+  },
+  {
+    "question": "In a web browser, what is a URL?",
+    "options": ["The back button.", "A website's address.", "The list of favorites.", "The image on the page."],
+    "correctAnswer": "A website's address."
+  },
+  {
+    "question": "What is an API used for?",
+    "options": ["To connect programs to each other.", "To translate texts.", "To block viruses.", "To increase memory."],
+    "correctAnswer": "To connect programs to each other."
+  },
+  {
+    "question": "What does HTML mean?",
+    "options": ["High Tech Machine Language.", "HyperText Markup Language.", "Home Tool Markup Language.", "Hyper Transfer Main Link."],
+    "correctAnswer": "HyperText Markup Language."
+  },
+  {
+    "question": "An SSD is used to:",
+    "options": ["Draw images.", "Store files quickly.", "Protect against viruses.", "Increase the CPU's speed."],
+    "correctAnswer": "Store files quickly."
+  },
+  {
+    "question": "What is Wi-Fi?",
+    "options": ["An internet cable.", "A wireless network for the internet.", "A security program.", "A type of memory."],
+    "correctAnswer": "A wireless network for the internet."
+  },
+  {
+    "question": "HTTP is a protocol for:",
+    "options": ["Sending files by email.", "Browse websites.", "Making a backup.", "Editing images."],
+    "correctAnswer": "Browse websites."
+  },
+  {
+    "question": "What is an app?",
+    "options": ["A type of cable.", "A program for a cell phone.", "A virus.", "A website."],
+    "correctAnswer": "A program for a cell phone."
+  },
+  {
+    "question": "What is a firewall?",
+    "options": ["A network cable.", "A digital protection wall.", "An image editing program.", "A translation app."],
+    "correctAnswer": "A digital protection wall."
+  },
+  {
+    "question": "Cloud' refers to:",
+    "options": ["A rain cloud.", "A space on the internet to save files.", "A computer brand.", "A cleaning program."],
+    "correctAnswer": "A space on the internet to save files."
+  },
+  {
+    "question": "A malware is:",
+    "options": ["A useful program.", "A virus or a bad program.", "A cloud service.", "A type of memory."],
+    "correctAnswer": "A virus or a bad program."
+  },
+  {
+    "question": "A bug is:",
+    "options": ["A special feature.", "A system error.", "A new app.", "A USB cable."],
+    "correctAnswer": "A system error."
+  },
+  {
+    "question": "What is a browser?",
+    "options": ["A program to surf the internet.", "Protection against viruses.", "Extra memory.", "A type of cable."],
+    "correctAnswer": "A program to surf the internet."
+  },
+  {
+    "question": "Software' is:",
+    "options": ["The physical parts of a computer.", "Programs that make the computer work.", "A power cable.", "An antivirus."],
+    "correctAnswer": "Programs that make the computer work."
+  },
+  {
+    "question": "Hardware' is:",
+    "options": ["Programs.", "The physical parts of a computer.", "A digital cloud.", "A network protocol."],
+    "correctAnswer": "The physical parts of a computer."
+  },
+  {
+    "question": "Log in' means:",
+    "options": ["To sign in with a username and password.", "To sign out of the system.", "To turn off the computer.", "To install a program."],
+    "correctAnswer": "To sign in with a username and password."
+  },
+  {
+    "question": "Log out' is used to:",
+    "options": ["Open a website.", "Sign in to the system.", "Sign out of the system.", "Share files."],
+    "correctAnswer": "Sign out of the system."
+  },
+  {
+    "question": "Set up' means:",
+    "options": ["To configure a device.", "To delete files.", "To download photos.", "To turn off the screen."],
+    "correctAnswer": "To configure a device."
+  },
+  {
+    "question": "Back up' is for:",
+    "options": ["Organizing folders.", "Making a security copy.", "Turning on the cell phone.", "Deleting photos."],
+    "correctAnswer": "Making a security copy."
+  },
+  {
+    "question": "Scroll down' is the act of:",
+    "options": ["Rolling the screen down.", "Turning up the volume.", "Turning off the device.", "Taking a photo."],
+    "correctAnswer": "Rolling the screen down."
+  },
+  {
+    "question": "Turn on' means:",
+    "options": ["To turn off.", "To turn on / To switch on.", "To connect a cable.", "To update software."],
+    "correctAnswer": "To turn on / To switch on."
+  },
+  {
+    "question": "Turn off' means:",
+    "options": ["To increase brightness.", "To turn off / To switch off.", "To install a program.", "To log in."],
+    "correctAnswer": "To turn off / To switch off."
+  },
+  {
+    "question": "Plug in' is the act of:",
+    "options": ["Connecting a cable.", "Downloading a file.", "Translating text.", "Cleaning the screen."],
+    "correctAnswer": "Connecting a cable."
+  },
+  {
+    "question": "Figure out' means:",
+    "options": ["To understand something.", "To uninstall a program.", "To turn on the Wi-Fi.", "To update the system."],
+    "correctAnswer": "To understand something."
+  },
+  {
+    "question": "Download' is:",
+    "options": ["Sending files to a website.", "Getting files from the internet.", "Deleting files.", "Copying text."],
+    "correctAnswer": "Getting files from the internet."
+  },
+  {
+    "question": "Upload' means:",
+    "options": ["Copying files to another phone.", "Sending files to the internet.", "Deleting emails.", "Turning off the PC."],
+    "correctAnswer": "Sending files to the internet."
+  },
+  {
+    "question": "What does a virtual assistant do?",
+    "options": ["It plays games.", "It answers questions.", "It builds hardware.", "It cleans viruses."],
+    "correctAnswer": "It answers questions."
+  },
+  {
+    "question": "Voice recognition is when:",
+    "options": ["The machine reads texts.", "The machine understands what you say.", "You record audio.", "The cell phone makes a backup."],
+    "correctAnswer": "The machine understands what you say."
+  },
+  {
+    "question": "Automatic translation is:",
+    "options": ["Translating text without human help.", "Writing messages.", "Copying and pasting text.", "Logging in."],
+    "correctAnswer": "Translating text without human help."
+  },
+  {
+    "question": "A smart filter:",
+    "options": ["Blocks everything.", "Shows what matches your interests.", "Deletes photos.", "Runs the system."],
+    "correctAnswer": "Shows what matches your interests."
+  },
+  {
+    "question": "What is a chatbot?",
+    "options": ["Online games.", "A robot that talks through text.", "A backup system.", "An antivirus."],
+    "correctAnswer": "A robot that talks through text."
+  },
+  {
+    "question": "A recommendation is when AI:",
+    "options": ["Deletes programs.", "Suggests videos or music.", "Turns off the Wi-Fi.", "Installs apps."],
+    "correctAnswer": "Suggests videos or music."
+  },
+  {
+    "question": "Face detection is:",
+    "options": ["Taking a selfie.", "Recognizing your face to unlock something.", "Making a backup.", "Translating audio."],
+    "correctAnswer": "Recognizing your face to unlock something."
+  },
+  {
+    "question": "Auto-correction is:",
+    "options": ["The phone corrects mistakes when you type.", "It increases brightness.", "It blocks spam.", "It runs an antivirus."],
+    "correctAnswer": "The phone corrects mistakes when you type."
+  },
+  {
+    "question": "Predictive text is:",
+    "options": ["The system suggests words as you type.", "It deletes emails.", "It sends files.", "It updates apps."],
+    "correctAnswer": "The system suggests words as you type."
+  },
+  {
+    "question": "Teamwork' means:",
+    "options": ["Doing everything alone.", "Sharing tasks with others.", "Playing video games.", "Downloading files."],
+    "correctAnswer": "Sharing tasks with others."
+  },
+  {
+    "question": "To solve problems' is:",
+    "options": ["To ignore errors.", "To find solutions.", "To delete folders.", "To install a virus."],
+    "correctAnswer": "To find solutions."
+  },
+  {
+    "question": "Having 'patience with technology' means:",
+    "options": ["Getting nervous.", "Being calm to learn.", "Turning everything off.", "Not using the computer."],
+    "correctAnswer": "Being calm to learn."
+  },
+  {
+    "question": "To always be learning' is:",
+    "options": ["To know everything at once.", "To keep studying.", "To stop trying.", "To throw the PC away."],
+    "correctAnswer": "To keep studying."
+  },
+  {
+    "question": "To listen carefully' helps you:",
+    "options": ["Ignore explanations.", "Understand instructions.", "Use an antivirus.", "Download videos."],
+    "correctAnswer": "Understand instructions."
+  },
+  {
+    "question": "To be 'creative' is:",
+    "options": ["To copy other people's work.", "To think of new ideas.", "To turn off the PC.", "To download copies."],
+    "correctAnswer": "To think of new ideas."
+  },
+  {
+    "question": "Clear communication' means:",
+    "options": ["To speak in a simple way.", "To speak too fast.", "To shout on a video call.", "To send emails."],
+    "correctAnswer": "To speak in a simple way."
+  },
+  {
+    "question": "To make decisions' is:",
+    "options": ["To choose what to do.", "To let others decide.", "To turn everything off.", "To ignore tasks."],
+    "correctAnswer": "To choose what to do."
+  },
+  {
+    "question": "Having 'empathy' helps you:",
+    "options": ["Ignore your colleagues.", "Understand the difficulties of others.", "Play alone.", "Delete messages."],
+    "correctAnswer": "Understand the difficulties of others."
+  },
+  {
+    "question": "What do you do on the 'blue space'?",
+    "options": ["You get an educational card.", "You answer a question.", "You go back one space.", "Nothing."],
+    "correctAnswer": "You answer a question."
+  },
+  {
+    "question": "If you get the question wrong on the blue space, you:",
+    "options": ["Move forward two spaces.", "Go back one space.", "Get another turn.", "Get an extra card."],
+    "correctAnswer": "Go back one space."
+  },
+  {
+    "question": "How many players can be in a digital room?",
+    "options": ["Up to 3.", "Up to 10.", "Up to 5.", "No limit."],
+    "correctAnswer": "Up to 5."
+  },
+  {
+    "question": "Who creates the code for the digital room?",
+    "options": ["The last one to enter.", "The person who starts the game.", "An external moderator.", "Everyone at the same time."],
+    "correctAnswer": "The person who starts the game."
+  },
+  {
+    "question": "The winner is the person who:",
+    "options": ["Reaches the start first.", "Reaches the end of the board first.", "Collects 10 blue cards.", "Runs out of questions."],
+    "correctAnswer": "Reaches the end of the board first."
+  }
+]
