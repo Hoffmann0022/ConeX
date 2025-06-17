@@ -44,8 +44,8 @@ async function loadGameData() {
         shuffleArray(learningCardsData);
 
     } catch (error) {
-        console.error('Erro ao carregar dados do jogo:', error);
-        alert('Erro ao carregar dados do jogo. Por favor, tente novamente.');
+        console.error('Error loading game data: ', error);
+        alert('Error loading game data. Please try again.');
     }
 }
 
@@ -93,7 +93,7 @@ function renderPlayerTokens() {
         if (targetSpace) {
             targetSpace.appendChild(token);
         } else {
-            console.warn(`Espaço space-${player.position} não encontrado para o jogador ${player.name}`);
+            console.warn(`space- ${player.position} not found for player ${player.name}`);
         }
     });
 }
@@ -101,7 +101,7 @@ function renderPlayerTokens() {
 function spinRoulette() {
     spinRouletteButton.disabled = true;
     roulettePopup.classList.remove('hidden'); 
-    rouletteMessage.textContent = 'Girando...';
+    rouletteMessage.textContent = 'Spinning...';
     closeRoulettePopupButton.classList.add('hidden');
 
     const roll = Math.floor(Math.random() * 6) + 1; 
@@ -133,7 +133,7 @@ function spinRoulette() {
     rouletteWheel.style.transform = `rotate(${newRotation}deg)`;
 
     setTimeout(() => {
-        rouletteMessage.textContent = `Você tirou ${roll}!`;
+        rouletteMessage.textContent = `You took ${roll}!`;
 
         rouletteWheel.style.transition = 'none';
         lastRotation = (360 - targetAngle) % 360; 
@@ -150,7 +150,7 @@ function spinRoulette() {
 }
 function hideRoulettePopup() {
     roulettePopup.classList.add('hidden'); 
-    rouletteMessage.textContent = 'Clique na roleta para girar!'; 
+    rouletteMessage.textContent = 'Click on the roulette wheel to spin!!'; 
 }
 
 function movePlayer(spacesToMove) {
@@ -193,8 +193,8 @@ function showCard() {
         cardContent.innerHTML = `<h3>${card.title}</h3><p>${card.description}</p>`;
         cardPopup.classList.remove('hidden'); 
     } else {
-        console.warn('Nenhum cartão de aprendizado disponível.');
-        alert('Ops! Não há mais cartões de aprendizado. Recarregando...');
+        console.warn('No learning cards available.');
+        alert('Oops! No more learning cards. Reloading...');
         loadGameData();
         endTurn();
     }
@@ -227,8 +227,8 @@ function showQuestion() {
         });
         questionPopup.classList.remove('hidden'); 
     } else {
-        console.warn('Nenhuma pergunta disponível.');
-        alert('Ops! Não há mais perguntas. Recarregando...');
+        console.warn('No questions available.');
+        alert('Oops! No more questions. Reloading...');
         loadGameData();
         endTurn();
     }
@@ -239,7 +239,7 @@ function checkAnswer(selectedOption, correctAnswer, clickedButton) {
 
     if (selectedOption === correctAnswer) {
         clickedButton.classList.add('correct');
-        alert('Correto! Avance 2 casas!');
+        alert('Correct! Move forward 2 spaces!');
         gamePlayers[currentPlayerIndex].position += 2;
     } else {
         clickedButton.classList.add('incorrect');
@@ -249,7 +249,7 @@ function checkAnswer(selectedOption, correctAnswer, clickedButton) {
             }
         });
 
-        alert('Incorreto! Volte 1 casa!');
+        alert('Incorrect! Go back 1 space!');
         gamePlayers[currentPlayerIndex].position = Math.max(0, gamePlayers[currentPlayerIndex].position - 1);
     }
     renderPlayerTokens();
@@ -266,14 +266,18 @@ function hideQuestionPopup() {
 
 function checkWinCondition() {
     if (gamePlayers[currentPlayerIndex].position >= BOARD_SIZE) {
-        alert(`${gamePlayers[currentPlayerIndex].name} Venceu o jogo!`);
-        localStorage.setItem('gameWinner', gamePlayers[currentPlayerIndex].name);
+        alert(`${gamePlayers[currentPlayerIndex].name} Won the game!`);
+        
         const sortedPlayers = [...gamePlayers].sort((a, b) => b.position - a.position);
-        localStorage.setItem('gamePodium', JSON.stringify(sortedPlayers.slice(0, 3)));
+        const podium = sortedPlayers.slice(0, 3);
+        console.log('Podium to save:', podium);
+    
+        localStorage.setItem('gamePodium', JSON.stringify(podium));
+    
         window.location.href = '../html/champion.html'; 
         endTurn(); 
     }
-}
+}  
 
 function endTurn() {
     currentPlayerIndex = (currentPlayerIndex + 1) % gamePlayers.length; 

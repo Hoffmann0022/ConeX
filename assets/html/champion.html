@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Champion</title>
+  <link rel="stylesheet" href="../css/champion.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Logo inserida corretamente -->
+    <img src="../img/Conex.png" alt="Conex Logo" class="logo" />
+
+    <h1 class="podium-title">Podium</h1>
+
+    <div class="podium">
+      <div class="first-place-box podium-box">
+        <div class="first-place-number">1º</div>
+        <div class="first-place-name" id="firstPlaceName">---</div>
+      </div>
+      
+      <div class="second-place-box podium-box">
+        <div class="second-place-number">2º</div>
+        <div class="second-place-name" id="secondPlaceName">---</div>
+      </div>
+      
+      <div class="third-place-box podium-box">
+        <div class="third-place-number">3º</div>
+        <div class="third-place-name" id="thirdPlaceName">---</div>
+      </div>
+    </div>
+
+    <button class="play-again-box" id="playAgainBtn">
+      <div class="play-again-text">Play again</div>
+    </button>
+
+  </div>
+  
+  <a class="footer-button" href="./duvidas.html">Need help?</a>
+
+  <footer></footer>
+
+  <script>
+    window.onload = () => {
+      const podium = JSON.parse(localStorage.getItem('gamePodium'));
+    
+      if (podium && podium.length === 3) {
+        document.getElementById('firstPlaceName').textContent = podium[0].name || '---';
+        document.getElementById('secondPlaceName').textContent = podium[1].name || '---';
+        document.getElementById('thirdPlaceName').textContent = podium[2].name || '---';
+      } else {
+        console.log('Podium data not found or incomplete');
+      }
+    
+      const playAgainBtn = document.getElementById('playAgainBtn');
+      if (playAgainBtn) {
+        playAgainBtn.addEventListener('click', () => {
+          window.location.href = 'lobby.html';
+        });
+      } else {
+        console.warn('Botão playAgainBtn não encontrado no DOM.');
+      }
+    };    
+  </script>  
+</body>
+</html>
+
+</button>
