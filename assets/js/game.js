@@ -106,19 +106,28 @@ function spinRoulette() {
 
     const roll = Math.floor(Math.random() * 6) + 1; 
     
-    const angleMap = {
-        1: 0,
-        2: 60,
-        3: 120,
-        4: 180,
-        5: 240,
-        6: 300
+    const baseAngleMap = {
+        1: 60,   
+        2: 120,  
+        3: 180, 
+        4: 240,
+        5: 300,  
+        6: 0     
     };
 
-    const targetAngle = angleMap[roll];
+    const POINTER_ALIGNMENT_OFFSET = 215; 
 
-    const fullRotations = 6;
-    const newRotation = lastRotation + (fullRotations * 360) + targetAngle;
+    const targetAngle = (baseAngleMap[roll] + POINTER_ALIGNMENT_OFFSET) % 360;
+
+    if (targetAngle === undefined || isNaN(targetAngle)) {
+        console.error('Error: Target angle not defined or invalid for roll:', roll);
+        alert('Error spinning roulette. Please try again.');
+        spinRouletteButton.disabled = false;
+        return;
+    }
+
+    const fullRotations = 6; 
+    const newRotation = lastRotation + (fullRotations * 360) + (360 - targetAngle);
 
     rouletteWheel.style.transition = 'transform 4s cubic-bezier(0.2, 0.9, 0.3, 1)';
     rouletteWheel.style.transform = `rotate(${newRotation}deg)`;
@@ -127,19 +136,18 @@ function spinRoulette() {
         rouletteMessage.textContent = `Você tirou ${roll}!`;
 
         rouletteWheel.style.transition = 'none';
-        lastRotation = newRotation % 360;
-        rouletteWheel.style.transform = `rotate(${lastRotation}deg)`;
-
+        lastRotation = (360 - targetAngle) % 360; 
+        rouletteWheel.style.transform = `rotate(${lastRotation}deg)`; 
+        
         setTimeout(() => {
             rouletteWheel.style.transition = 'transform 4s cubic-bezier(0.2, 0.9, 0.3, 1)';
-        }, 50);
+        }, 50); 
 
         closeRoulettePopupButton.classList.remove('hidden');
-        roulettePopup.dataset.currentRoll = roll;
-        spinRouletteButton.disabled = false;
+        roulettePopup.dataset.currentRoll = roll; 
+        spinRouletteButton.disabled = false; 
     }, 4500);
 }
-
 function hideRoulettePopup() {
     roulettePopup.classList.add('hidden'); 
     rouletteMessage.textContent = 'Clique na roleta para girar!'; 
