@@ -1,78 +1,171 @@
-const cards = document.querySelectorAll('.card');
-const overlay = document.querySelector('.overlay');
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.card');
+  const overlay = document.querySelector('.overlay');
+  let activeCard = null;
 
-let activeCard = null;
+  if (!cards.length) {
+      console.warn("No '.card' elements found. FAQ functionality may not work.");
+      return;
+  }
+  if (!overlay) {
+      console.error("'.overlay' element not found. The overlay for FAQ pop-ups is essential.");
+      return;
+  }
 
-function card_duvidas() {
-  cards.forEach(function (card) {
-    const closeButton = card.querySelector('.bi-x-lg');
-    const options = card.querySelector('.grupo_opcoes');
-
-    // Evento de clique no card
-    card.addEventListener('click', function () {
-      // Previne reabrir o mesmo card
-      if (activeCard === card) return;
-
-      // Fecha o card anterior (se houver)
+  const closeCard = () => {
       if (activeCard) {
-        const prevClose = activeCard.querySelector('.bi-x-lg');
-        const prevOptions = activeCard.querySelector('.grupo_opcoes');
-        activeCard.classList.remove('active');
-        activeCard.classList.add('disabled');
-        prevClose.style.display = 'none';
-        prevOptions.style.display = 'none';
+          const closeButton = activeCard.querySelector('.bi-x-lg');
+          const options = activeCard.querySelector('.grupo_opcoes');
+
+          activeCard.classList.remove('active');
+          activeCard.classList.add('disabled');
+          if (closeButton) closeButton.style.display = 'none';
+          if (options) options.style.display = 'none';
+          overlay.style.display = 'none';
+          activeCard = null;
+      }
+  };
+
+  cards.forEach(card => {
+      const closeButton = card.querySelector('.bi-x-lg');
+      const options = card.querySelector('.grupo_opcoes');
+
+      if (!closeButton) {
+          console.warn("Close button (.bi-x-lg) not found for a card. Check HTML structure.");
+          return;
+      }
+      if (!options) {
+          console.warn("Options group (.grupo_opcoes) not found for a card. Check HTML structure.");
+          return;
       }
 
-      // Abre o novo card
-      activeCard = card;
-      card.classList.add('active');
-      card.classList.remove('disabled');
-      overlay.style.display = 'block';
-      closeButton.style.display = 'block';
-      options.style.display = 'flex';
-    });
+      card.addEventListener('click', () => {
+          if (activeCard === card) return;
 
-    // Fecha ao clicar no botão de fechar
-    closeButton.addEventListener('click', function (e) {
-      e.stopPropagation(); // Evita reabrir o card ao clicar no botão
-      fecharCard();
-    });
+          if (activeCard) {
+              closeCard();
+          }
+
+          activeCard = card;
+          card.classList.add('active');
+          card.classList.remove('disabled');
+          overlay.style.display = 'block';
+          closeButton.style.display = 'block';
+          options.style.display = 'flex';
+      });
+
+      closeButton.addEventListener('click', e => {
+          e.stopPropagation();
+          closeCard();
+      });
   });
 
-  // Fecha ao clicar no overlay
-  overlay.addEventListener('click', function () {
-    fecharCard();
+  overlay.addEventListener('click', () => {
+      closeCard();
   });
 
-  function fecharCard() {
-    if (activeCard) {
-      const closeButton = activeCard.querySelector('.bi-x-lg');
-      const options = activeCard.querySelector('.grupo_opcoes');
+  const returnToLastValidPage = () => {
+      const lastPage = localStorage.getItem('paginaValidaAnterior');
+      const validPages = ['lobby.html', 'pitStop.html', 'game.html'];
 
-      activeCard.classList.remove('active');
-      activeCard.classList.add('disabled');
-      closeButton.style.display = 'none';
-      options.style.display = 'none';
-      overlay.style.display = 'none';
-      activeCard = null;
-    }
+      if (lastPage && validPages.includes(lastPage)) {
+          window.location.href = './' + lastPage;
+      } else {
+          window.location.href = './lobby.html';
+      }
+  };
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.card');
+  const overlay = document.querySelector('.overlay');
+  let activeCard = null;
+
+  // Elementos do FAQ
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  // --- Validações Iniciais ---
+  if (!cards.length) {
+      console.warn("No '.card' elements found. FAQ card functionality may not work.");
   }
-}
-
-card_duvidas();
-
-
-// Função para voltar para a última página válida
-
-function voltarParaUltimaPagina() {
-    const ultimaPagina = localStorage.getItem('paginaValidaAnterior');
-    const paginasValidas = ['lobby.html', 'pitStop.html', 'game.html'];
-
-    // Se há uma página salva e ela é válida, redireciona
-    if (ultimaPagina && paginasValidas.includes(ultimaPagina)) {
-      window.location.href = './' + ultimaPagina;
-    } else {
-      // Se não há página válida salva, vai para um padrão
-      window.location.href = './lobby.html';
-    }
+  if (!overlay) {
+      console.error("'.overlay' element not found. The overlay for FAQ pop-ups is essential.");
   }
+
+  // --- Lógica para Abrir/Fechar Cards (Dúvidas Detalhadas) ---
+  const closeCard = () => {
+      if (activeCard) {
+          const closeButton = activeCard.querySelector('.bi-x-lg');
+          const options = activeCard.querySelector('.grupo_opcoes');
+
+          activeCard.classList.remove('active');
+          activeCard.classList.add('disabled');
+          if (closeButton) closeButton.style.display = 'none';
+          if (options) options.style.display = 'none';
+          if (overlay) overlay.style.display = 'none';
+          activeCard = null;
+      }
+  };
+
+  cards.forEach(card => {
+      const closeButton = card.querySelector('.bi-x-lg');
+      const options = card.querySelector('.grupo_opcoes');
+
+      if (!closeButton) {
+          console.warn("Close button (.bi-x-lg) not found for a card. Check HTML structure.");
+          return;
+      }
+      if (!options) {
+          console.warn("Options group (.grupo_opcoes) not found for a card. Check HTML structure.");
+          return;
+      }
+
+      card.addEventListener('click', () => {
+          if (activeCard === card) return;
+
+          if (activeCard) {
+              closeCard();
+          }
+
+          activeCard = card;
+          card.classList.add('active');
+          card.classList.remove('disabled');
+          if (overlay) overlay.style.display = 'block';
+          closeButton.style.display = 'block';
+          options.style.display = 'flex';
+      });
+
+      closeButton.addEventListener('click', e => {
+          e.stopPropagation();
+          closeCard();
+      });
+  });
+
+  if (overlay) {
+      overlay.addEventListener('click', () => {
+          closeCard();
+      });
+  }
+
+  // --- Lógica para FAQ (Expansível/Retrátil) ---
+  faqItems.forEach(item => {
+      item.addEventListener('click', function() {
+          this.classList.toggle('active');
+      });
+  });
+
+  // --- Função de Navegação ---
+  const returnToLastValidPage = () => {
+      const lastPage = localStorage.getItem('paginaValidaAnterior');
+      const validPages = ['lobby.html', 'pitStop.html', 'game.html'];
+
+      if (lastPage && validPages.includes(lastPage)) {
+          window.location.href = './' + lastPage;
+      } else {
+          window.location.href = './lobby.html';
+      }
+  };
+
+  // Torna a função globalmente acessível
+  window.voltarParaUltimaPagina = returnToLastValidPage; 
+});
