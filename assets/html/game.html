@@ -1,53 +1,96 @@
-<!DOCTYPE html>
-<html lang="pt">
-
-<head>
+<html lang="pt-BR"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade de Números</title>
+    <title>ConeX - Jogo de Aprendizagem Digital</title>
+    <link rel="icon" href="https://cdn.builder.io/api/v1/image/assets/TEMP/2e74e55393055143a71be38e214b8b4b47775c82?placeholderIfAbsent=true&amp;apiKey=79765d7744e34955aa563ba13d496390">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/game.css">
-    <link rel="icon"
-        href="https://cdn.builder.io/api/v1/image/assets/TEMP/2e74e55393055143a71be38e214b8b4b47775c82?placeholderIfAbsent=true&apiKey=79765d7744e34955aa563ba13d496390">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body cz-shortcut-listen="true">
     <main>
-        <button class="button">Spin the wheel</button>
+        <h2 id="playerTurnMessage"></h2>
+
+        <button class="button" id="spinRouletteButton">Spin the wheel</button>
+
         <div class="grid-container">
             <div class="grid">
                 <!-- As 96 casas são geradas dinamicamente pelo JavaScript -->
             </div>
             <div class="winner">Winner</div>
         </div>
+
         <a class="footer-button" href="./duvidas.html">Need help?</a>
-
-        <footer></footer>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const colors = ["blue", "green", "yellow", "gray", "orange"];
-                const grid = document.querySelector(".grid");
-                for (let i = 1; i <= 96; i++) {
-                    let div = document.createElement("div");
-                    div.className = colors[i % colors.length];
-                    div.textContent = i;
-                    grid.appendChild(div);
-                }
-            });
-        </script>
     </main>
 
+    <footer></footer>
+
+    <div id="roulettePopup" class="popup-overlay hidden">
+        <div class="popup-content roulette-popup-content">
+            <h2 id="rouletteMessage">Click on the wheel to spin!</h2>
+            <div class="roulette-container">
+                <img src="../img/roulette_pointer.png" alt="Roulette Pointer" class="roulette-pointer">
+                <div id="rouletteWheel" class="roulette-wheel"></div>
+            </div>
+            <button id="closeRoulettePopup" class="popup-button hidden">OK</button>
+        </div>
+    </div>
+
+    <div id="cardPopup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <h2>Learning Card</h2>
+            <div id="cardContent"></div>
+            <button id="closeCardPopup" class="popup-button">Got it!</button>
+        </div>
+    </div>
+
+    <div id="questionPopup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <h2>Technology Question</h2>
+            <p id="questionText"></p>
+            <div id="questionOptions" class="question-options"></div>
+            <button id="closeQuestionPopup" class="popup-button cancel">Close</button>
+        </div>
+    </div>
+
+    <div id="feedbackPopup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <p id="feedbackText"></p>
+            <button id="closeFeedbackButton" class="popup-button">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const colors = ["blue", "green", "yellow", "gray", "orange"];
+            const grid = document.querySelector(".grid"); 
+            
+            grid.innerHTML = ''; // Clear existing content
+
+            for (let i = 0; i <= 96; i++) {
+                let div = document.createElement("div");
+                div.className = colors[i % colors.length];
+                div.textContent = i === 0 ? 'START' : i;
+                div.id = `space-${i}`;
+                div.classList.add('board-space'); 
+                grid.appendChild(div);
+            }
+        });
+    </script>
+    
+    <script src="../js/game.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentPage = window.location.pathname.split('/').pop();
+            if (['lobby.html', 'pitStop.html', 'game.html'].includes(currentPage)) {
+                localStorage.setItem('lastValidPage', currentPage);
+                console.log('Page saved to localStorage:', currentPage);
+            }
+        });
+    </script>
+
+
 </body>
-<script>
-    // Pegando o nome da página atual
-    const paginaAtual = window.location.pathname.split('/').pop();
-
-    // Se for uma das páginas válidas, salva no localStorage
-    if (['lobby.html', 'pitStop.html', 'game.html'].includes(paginaAtual)) {
-        localStorage.setItem('paginaValidaAnterior', paginaAtual);
-        console.log('Página salva no localStorage:', paginaAtual);
-    }
-</script>
-
 </html>

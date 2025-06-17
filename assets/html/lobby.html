@@ -11,34 +11,33 @@
     <link rel="icon"
         href="https://cdn.builder.io/api/v1/image/assets/TEMP/2e74e55393055143a71be38e214b8b4b47775c82?placeholderIfAbsent=true&apiKey=79765d7744e34955aa563ba13d496390">
 </head>
-</head>
-
 <body>
     <div class="overlay"></div>
     <main>
         <div class="conteiner_lobby">
-            <i class="bi bi-x-lg"></i>
+            <i class="bi bi-x-lg" id="closePlayerInputPopup"></i> 
             <img class="logo" src="../img/IMAGE-lobby.png" alt="">
 
-            <a class="cta-button" href="#"><span>+</span>New player</a>
+            <a class="cta-button" href="#" id="addPlayerButton"><span>+</span>New player</a>
 
-            <div class="jogadores">
+            <div class="jogadores" id="playersList">
+                </div>
+            
+            <p id="lobbyErrorMessage" class="error-message"></p>
 
-            </div>
-
-            <a class="play" href="./game.html">Play</a>
+            <a class="play" href="./game.html" id="startGameButton">Play</a>
         </div>
 
 
         <a class="footer-button" href="./duvidas.html">Need help?</a>
 
 
-        <!-- PopUp para botar o nome -->
-        <div class="player">
+        <div class="player" id="playerInputPopup">
             <div class="conteiner_player">
                 <h3 class="player_title">Enter Your Name</h3>
                 <input type="text" id="playerName" placeholder="Enter your name" maxlength="30">
-                <button>Enter</button>
+                
+                <button id="savePlayerButton">Enter</button>
             </div>
         </div>
         <footer></footer>
@@ -48,10 +47,7 @@
 <script src="../js/lobby.js"></script>
 
 <script>
-    // Pegando o nome da página atual
     const paginaAtual = window.location.pathname.split('/').pop();
-
-    // Se for uma das páginas válidas, salva no localStorage
     if (['lobby.html', 'pitStop.html', 'game.html'].includes(paginaAtual)) {
         localStorage.setItem('paginaValidaAnterior', paginaAtual);
         console.log('Página salva no localStorage:', paginaAtual);
