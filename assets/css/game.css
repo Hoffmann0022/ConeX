@@ -20,6 +20,7 @@ main {
   cursor: pointer;
   font-size: 1.2rem;
   border-radius: 5px;
+  margin-top: 20px;
 }
 
 .button:hover {
@@ -33,29 +34,28 @@ main {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 1200px;
+  align-items: center;
+  width: 100vw;
   margin-top: 20px;
+  height: 60vh;
 }
 
 /* Grade das casas */
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 12px;
-  width: 100%;
-  max-width: 960px;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 5px;
 }
 
 /* Cada casa */
 .grid div {
+  position: relative;
   aspect-ratio: 1 / 1;
-  width: 100%;
+  width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: black;
   border-radius: 20px;
@@ -66,24 +66,19 @@ main {
   background-color: #9b9a9a;
 }
 .blue {
-  background-color: #73d2fa;
+  background-color: #73D2FA;
 }
 .green {
-  background-color: #b7e649;
-}
-.pink {
-  background-color: #f49e7f;
+  background-color: #B7E649;
 }
 .orange {
-  background-color: #ff3c00;
+  background-color: #F49E7F;
 }
-.yellow-orange {
-  background-color: #ffbd43;
-}
+
 
 /* Área "Winner" */
 .winner {
-  background-color: #ff8800;
+  background-color: #FFBD43;
   color: white;
   font-size: 22px;
   font-weight: bold;
@@ -94,10 +89,29 @@ main {
   border-radius: 8px;
   height: 100%;
   display: flex;
-  height: 636px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 120px;
+}
+
+.start_text{
+  background-color: #FFBD43;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  writing-mode:vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.start{
+  display: flex;
+  position: relative;
 }
 
 /* Botão de ajuda */
@@ -287,7 +301,7 @@ footer {
   height: 300px;
   margin: 20px auto;
   border-radius: 50%;
-  overflow: hidden; 
+  overflow: visible; 
 }
 
 .roulette-pointer {

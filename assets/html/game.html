@@ -1,8 +1,11 @@
-<html lang="pt-BR"><head>
+<html lang="pt-BR">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConeX - Jogo de Aprendizagem Digital</title>
-    <link rel="icon" href="https://cdn.builder.io/api/v1/image/assets/TEMP/2e74e55393055143a71be38e214b8b4b47775c82?placeholderIfAbsent=true&amp;apiKey=79765d7744e34955aa563ba13d496390">
+    <link rel="icon"
+        href="https://cdn.builder.io/api/v1/image/assets/TEMP/2e74e55393055143a71be38e214b8b4b47775c82?placeholderIfAbsent=true&amp;apiKey=79765d7744e34955aa563ba13d496390">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/game.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&amp;display=swap" rel="stylesheet">
@@ -15,6 +18,9 @@
         <button class="button" id="spinRouletteButton">Spin the wheel</button>
 
         <div class="grid-container">
+            <div class="start_text">Start
+                <div class="start"></div>
+            </div>
             <div class="grid">
                 <!-- As 96 casas são geradas dinamicamente pelo JavaScript -->
             </div>
@@ -63,26 +69,46 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const colors = ["blue", "green", "yellow", "gray", "orange"];
-            const grid = document.querySelector(".grid"); 
-            
-            grid.innerHTML = ''; // Clear existing content
+            const specialColors = ["blue", "green", "orange"];
+            const grayColor = "gray";
+            const grid = document.querySelector(".grid");
+            const totalSpaces = 97;
+            const colorCount = 20;
 
-            for (let i = 0; i <= 96; i++) {
-                let div = document.createElement("div");
-                div.className = colors[i % colors.length];
-                div.textContent = i === 0 ? 'START' : i;
+            const colorMap = {}; // posição -> cor
+
+            specialColors.forEach(color => {
+                let count = 0;
+                while (count < colorCount) {
+                    const index = Math.floor(Math.random() * totalSpaces);
+                    if (!colorMap[index]) {
+                        colorMap[index] = color;
+                        count++;
+                    }
+                }
+            });
+
+            grid.innerHTML = '';
+
+            for (let i = 1; i < totalSpaces; i++) {
+                const div = document.createElement("div");
+                const color = colorMap[i] || grayColor;
+
+                div.className = `board-space ${color}`;
                 div.id = `space-${i}`;
-                div.classList.add('board-space'); 
+                div.textContent = i; // Agora sempre mostra o número
                 grid.appendChild(div);
             }
         });
     </script>
-    
+
+
+
+
     <script src="../js/game.js"></script>
-    
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const currentPage = window.location.pathname.split('/').pop();
             if (['lobby.html', 'pitStop.html', 'game.html'].includes(currentPage)) {
                 localStorage.setItem('lastValidPage', currentPage);
@@ -93,4 +119,5 @@
 
 
 </body>
+
 </html>

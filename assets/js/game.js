@@ -1,11 +1,11 @@
-const BOARD_SIZE = 96; 
+const BOARD_SIZE = 96;
 const DEFAULT_PLAYER_COLORS = ['#FF6347', '#6A5ACD', '#3CB371', '#FFD700', '#1E90FF'];
 
 let gamePlayers = [];
 let currentPlayerIndex = 0;
 let questionsData = [];
 let learningCardsData = [];
-let currentQuestion = null; 
+let currentQuestion = null;
 
 // DOM Elements
 const playerTurnMessage = document.getElementById('playerTurnMessage');
@@ -23,10 +23,10 @@ const questionText = document.getElementById('questionText');
 const questionOptions = document.getElementById('questionOptions');
 const closeQuestionPopupButton = document.getElementById('closeQuestionPopup');
 
-let lastRotation = 0; 
+let lastRotation = 0;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadGameData(); 
+    await loadGameData();
     initializeGame();
 });
 
@@ -60,9 +60,9 @@ function initializeGame() {
     const storedPlayers = localStorage.getItem('gamePlayers');
     if (storedPlayers) {
         gamePlayers = JSON.parse(storedPlayers);
-        gamePlayers.forEach(player => player.position = 0); 
+        gamePlayers.forEach(player => player.position = 0);
     } else {
-        window.location.href = '../html/lobby.html'; 
+        window.location.href = '../html/lobby.html';
         return;
     }
 
@@ -80,6 +80,7 @@ function updatePlayerTurnMessage() {
     }
 }
 
+
 function renderPlayerTokens() {
     document.querySelectorAll('.player-token').forEach(token => token.remove());
 
@@ -88,34 +89,49 @@ function renderPlayerTokens() {
         token.classList.add('player-token');
         token.style.backgroundColor = player.color; 
         token.dataset.playerId = player.id;
+        token.style.opacity = "0.9"
+        token.style.borderRadius = "50%";
+        token.style.width = "40px";
+        token.style.height = "40px";
+        token.style.margin = "10px";
+        
 
-        const targetSpace = document.getElementById(`space-${player.position}`);
+        let targetSpace;
+
+        // Se estiver na posição 0, coloca na .start (fora da grid)
+        if (player.position === 0) {
+            targetSpace = document.querySelector('.start');
+        } else {
+            targetSpace = document.getElementById(`space-${player.position}`);
+            token.style.position = "absolute";
+        }
+
         if (targetSpace) {
             targetSpace.appendChild(token);
         } else {
-            console.warn(`space- ${player.position} not found for player ${player.name}`);
+            console.warn(`Space ${player.position} not found for player ${player.name}`);
         }
     });
 }
 
 function spinRoulette() {
     spinRouletteButton.disabled = true;
-    roulettePopup.classList.remove('hidden'); 
+    roulettePopup.classList.remove('hidden');
     rouletteMessage.textContent = 'Spinning...';
     closeRoulettePopupButton.classList.add('hidden');
 
-    const roll = Math.floor(Math.random() * 6) + 1; 
-    
+    const roll = Math.floor(Math.random() * 6) + 1;
+
     const baseAngleMap = {
-        1: 60,   
-        2: 120,  
-        3: 180, 
+        1: 60,
+        2: 120,
+        3: 180,
         4: 240,
-        5: 300,  
-        6: 0     
+        5: 300,
+        6: 0
     };
 
-    const POINTER_ALIGNMENT_OFFSET = 215; 
+    const POINTER_ALIGNMENT_OFFSET = 215;
 
     const targetAngle = (baseAngleMap[roll] + POINTER_ALIGNMENT_OFFSET) % 360;
 
@@ -126,7 +142,7 @@ function spinRoulette() {
         return;
     }
 
-    const fullRotations = 6; 
+    const fullRotations = 6;
     const newRotation = lastRotation + (fullRotations * 360) + (360 - targetAngle);
 
     rouletteWheel.style.transition = 'transform 4s cubic-bezier(0.2, 0.9, 0.3, 1)';
@@ -136,21 +152,21 @@ function spinRoulette() {
         rouletteMessage.textContent = `You took ${roll}!`;
 
         rouletteWheel.style.transition = 'none';
-        lastRotation = (360 - targetAngle) % 360; 
-        rouletteWheel.style.transform = `rotate(${lastRotation}deg)`; 
-        
+        lastRotation = (360 - targetAngle) % 360;
+        rouletteWheel.style.transform = `rotate(${lastRotation}deg)`;
+
         setTimeout(() => {
             rouletteWheel.style.transition = 'transform 4s cubic-bezier(0.2, 0.9, 0.3, 1)';
-        }, 50); 
+        }, 50);
 
         closeRoulettePopupButton.classList.remove('hidden');
-        roulettePopup.dataset.currentRoll = roll; 
-        spinRouletteButton.disabled = false; 
+        roulettePopup.dataset.currentRoll = roll;
+        spinRouletteButton.disabled = false;
     }, 4500);
 }
 function hideRoulettePopup() {
-    roulettePopup.classList.add('hidden'); 
-    rouletteMessage.textContent = 'Click on the roulette wheel to spin!!'; 
+    roulettePopup.classList.add('hidden');
+    rouletteMessage.textContent = 'Click on the roulette wheel to spin!!';
 }
 
 function movePlayer(spacesToMove) {
@@ -173,9 +189,9 @@ function movePlayer(spacesToMove) {
 }
 
 function checkSpecialSpace(position) {
-    if (position % 7 === 0 && position !== 0) { 
+    if (position % 7 === 0 && position !== 0) {
         showCard();
-    } else if (position % 11 === 0 && position !== 0) { 
+    } else if (position % 11 === 0 && position !== 0) {
         showQuestion();
     } else {
         endTurn();
@@ -191,7 +207,7 @@ function showCard() {
         const card = learningCardsData.splice(randomIndex, 1)[0];
 
         cardContent.innerHTML = `<h3>${card.title}</h3><p>${card.description}</p>`;
-        cardPopup.classList.remove('hidden'); 
+        cardPopup.classList.remove('hidden');
     } else {
         console.warn('No learning cards available.');
         alert('Oops! No more learning cards. Reloading...');
@@ -201,7 +217,7 @@ function showCard() {
 }
 
 function hideCardPopup() {
-    cardPopup.classList.add('hidden'); 
+    cardPopup.classList.add('hidden');
     endTurn();
 }
 
@@ -214,7 +230,7 @@ function showQuestion() {
         currentQuestion = questionsData.splice(randomIndex, 1)[0];
 
         questionText.textContent = currentQuestion.question;
-        questionOptions.innerHTML = ''; 
+        questionOptions.innerHTML = '';
 
         currentQuestion.options.forEach(option => {
             const button = document.createElement('button');
@@ -225,7 +241,7 @@ function showQuestion() {
             });
             questionOptions.appendChild(button);
         });
-        questionPopup.classList.remove('hidden'); 
+        questionPopup.classList.remove('hidden');
     } else {
         console.warn('No questions available.');
         alert('Oops! No more questions. Reloading...');
@@ -249,8 +265,8 @@ function checkAnswer(selectedOption, correctAnswer, clickedButton) {
             }
         });
 
-        alert('Incorrect! Go back 1 space!');
-        gamePlayers[currentPlayerIndex].position = Math.max(0, gamePlayers[currentPlayerIndex].position - 1);
+        alert('Incorrect! Go back 2 spaces!');
+        gamePlayers[currentPlayerIndex].position = Math.max(0, gamePlayers[currentPlayerIndex].position - 2 );
     }
     renderPlayerTokens();
 
@@ -260,42 +276,42 @@ function checkAnswer(selectedOption, correctAnswer, clickedButton) {
 }
 
 function hideQuestionPopup() {
-    questionPopup.classList.add('hidden'); 
+    questionPopup.classList.add('hidden');
     endTurn();
 }
 
 function checkWinCondition() {
     if (gamePlayers[currentPlayerIndex].position >= BOARD_SIZE) {
         alert(`${gamePlayers[currentPlayerIndex].name} Won the game!`);
-        
+
         const sortedPlayers = [...gamePlayers].sort((a, b) => b.position - a.position);
         const podium = sortedPlayers.slice(0, 3);
         console.log('Podium to save:', podium);
-    
+
         localStorage.setItem('gamePodium', JSON.stringify(podium));
-    
-        window.location.href = '../html/champion.html'; 
-        endTurn(); 
+
+        window.location.href = '../html/champion.html';
+        endTurn();
     }
-}  
+}
 
 function endTurn() {
-    currentPlayerIndex = (currentPlayerIndex + 1) % gamePlayers.length; 
+    currentPlayerIndex = (currentPlayerIndex + 1) % gamePlayers.length;
     updatePlayerTurnMessage();
-    spinRouletteButton.disabled = false; 
+    spinRouletteButton.disabled = false;
 }
 
 // --- LISTENERS DE EVENTOS ---
 spinRouletteButton.addEventListener('click', () => {
-    roulettePopup.classList.remove('hidden'); 
-    closeRoulettePopupButton.classList.add('hidden'); 
-    spinRoulette(); 
+    roulettePopup.classList.remove('hidden');
+    closeRoulettePopupButton.classList.add('hidden');
+    spinRoulette();
 });
 
 closeRoulettePopupButton.addEventListener('click', () => {
     const roll = parseInt(roulettePopup.dataset.currentRoll, 10);
     movePlayer(roll);
-    hideRoulettePopup(); 
+    hideRoulettePopup();
 });
 
 rouletteWheel.addEventListener('click', () => {
