@@ -1,21 +1,22 @@
 main {
     width: 100vw;
-    height: 100vh;
     padding: 5vh 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    margin-bottom: 10vh;
 }
 
 .logo {
     width: 300px;
+    position: relative;
 }
 
 .cta-button {
     background-color: rgba(0, 0, 0, 1);
     border-radius: 10px;
-    padding: 20px 0px;
+    padding: 20px 10px;
     font-size: 2rem;
     color: rgba(255, 255, 255, 1);
     font-weight: 700;
@@ -26,18 +27,20 @@ main {
     width: 400px;
     margin: 10px 0px;
 }
-span{
+
+span {
     margin-right: 50px;
 }
+
 .cta-button:hover {
     background-color: rgb(31, 30, 30);
 }
 
-.player{
+.player {
     display: none;
 }
 
-.player.active{
+.player.active {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,31 +57,32 @@ span{
     color: rgba(255, 255, 255, 1);
 }
 
-.conteiner_player{
+.conteiner_player {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
     gap: 100px;
     width: 95%;
     height: 80%;
 }
 
-.conteiner_player h3{
+.conteiner_player h3 {
     font-size: 2rem;
 }
 
-.conteiner_player input{
+.conteiner_player input {
     width: 50%;
     padding: 15px;
     border-radius: 5px;
     border: none;
     font-size: 1rem;
     color: rgba(0, 0, 0, 1);
-    background-color: rgb(226, 224, 224);;
+    background-color: rgb(226, 224, 224);
+    ;
 }
 
-.conteiner_player button{
+.conteiner_player button {
     width: 50%;
     padding: 15px;
     border-radius: 5px;
@@ -91,7 +95,7 @@ span{
     transition: all .4s ease-in-out;
 }
 
-.conteiner_player button:hover{
+.conteiner_player button:hover {
     background-color: rgb(196, 194, 194);
 }
 
@@ -111,7 +115,7 @@ span{
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    margin-top: 100px;
+    margin-top: 20px;
     justify-content: center;
 }
 
@@ -121,7 +125,7 @@ span{
     border-radius: 10px;
     font-weight: bold;
     font-size: 1.2rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
     text-align: center;
     width: auto;
@@ -133,7 +137,7 @@ span{
     transform: scale(1.05);
 }
 
-.play{
+.play {
     display: none;
     width: 300px;
     padding: 15px;
@@ -142,13 +146,13 @@ span{
     font-size: 1.3rem;
     font-weight: 700;
     color: rgb(226, 224, 224);
-    background-color:rgba(0, 0, 0, 1) ;
+    background-color: rgba(0, 0, 0, 1);
     cursor: pointer;
     text-align: center;
     transition: all .4s ease-in-out;
 }
 
-.play:hover{
+.play:hover {
     background-color: rgb(22, 22, 22);
 }
 
@@ -169,14 +173,13 @@ span{
     border-radius: 50%;
 }
 
-.conteiner_lobby{
+.conteiner_lobby {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     gap: 30px;
     width: 95%;
-    height: 80%;
 }
 
 .footer-button {
@@ -216,20 +219,60 @@ footer {
         width: 300px;
         margin: 10px 0px;
     }
+
+    .conteiner_player {
+        gap: 50px;
+        width: 96%;
+        height: 80%;
+    }
+
+    .conteiner_player h3 {
+        font-size: 1.5rem;
+    }
+
+    .conteiner_player input {
+        width: 80%;
+        font-size: 1rem;
+    }
+
+    .conteiner_player button {
+        width: 80%;
+        font-size: 1rem;
+    }
 }
 
 
 @media screen and (max-width: 390px) {
     .cta-button {
-        padding: 30px 0px;
+        padding: 30px 10px;
         font-size: 1.5rem;
-        width: 200px;
+        width: 230px;
         margin: 10px 0px;
     }
 
     .logo {
-    width: 200px;
-    position: fixed;
-    top: 5vh;
-}
+        width: 200px;
+        top: 5vh;
+    }
+
+    .conteiner_player {
+        gap: 50px;
+        width: 96%;
+        height: 80%;
+    }
+
+    .conteiner_player h3 {
+        font-size: 1.5rem;
+    }
+
+    .conteiner_player input {
+        width: 80%;
+        font-size: 1rem;
+    }
+
+    .conteiner_player button {
+        width: 80%;
+        font-size: 1rem;
+    }
+
 }
