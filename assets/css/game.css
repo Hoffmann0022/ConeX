@@ -192,8 +192,9 @@ footer {
     width: 300px;
     height: 50px;
     padding: 12px 24px;
-    
+
   }
+
   .start_text {
     writing-mode: horizontal-tb;
     text-orientation: mixed;
@@ -231,6 +232,10 @@ footer {
   display: none;
 }
 
+#cardPopup .popup-content {
+  background-color: #B7E649;
+}
+
 .popup-content {
   align-items: center;
   justify-content: start;
@@ -247,11 +252,11 @@ footer {
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .popup-button {
-  background-color: #4CAF50;
+  background-color: #000000 !important;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -261,6 +266,11 @@ footer {
   margin-top: 20px;
 }
 
+#closeRoulettePopup{
+  background-color: #fff !important;
+  color: #000;
+}
+
 .popup-button:hover {
   opacity: 0.9;
 }
@@ -268,7 +278,7 @@ footer {
 .question-options button {
   width: 100%;
   height: 50px;
-  background-color: D9D9D9;
+  background-color: #D9D9D9;
   border-radius: 10px;
   padding-left: 30px;
   font-size: 1.2rem;
@@ -369,9 +379,9 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #73D2FA;
+}
 
-
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
     .roulette-popup-content {
       width: 95%;
       padding: 15px;
@@ -421,4 +431,3 @@ footer {
   .popup-button.cancel {
     background-color: #f44336;
   }
-}

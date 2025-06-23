@@ -14,10 +14,7 @@ const questionPopup = document.getElementById('questionPopup');
 const questionText = document.getElementById('questionText');
 const questionOptions = document.getElementById('questionOptions');
 const closeQuestionPopupButton = document.getElementById('closeQuestionPopup');
-const boardSpace = document.querySelector('.board-space');
-const boardSpaceBlue = document.querySelectorAll('.blue');
-const boardSpaceGreen = document.querySelectorAll('.green');
-const boardSpaceOrange = document.querySelectorAll('.orange');
+
 
 let lastRotation = 0;
 let game;
@@ -143,63 +140,98 @@ function movePlayer(spaces) {
 /**
  * Verifica se o jogador caiu em espaço especial e executa ação correspondente.
  */
-function checkSpecialSpace() {
-  const action = game.checkSpecialSpace(game.getCurrentPlayer().position);
+async function checkSpecialSpace() {
+  const position = game.getCurrentPlayer().position;
+  const action = game.checkSpecialSpace(position);
 
   switch (action) {
     case 'card':
-      showCard();
+      await delay(300);
+      await showCard();             
+      endTurn();                    
       break;
+
     case 'question':
-      showQuestion();
-      break;
+      await delay(300);
+      await showQuestion();
+      renderPlayerTokens();
+      return checkSpecialSpace();   
+
+    case 'back':
+      await delay(300);
+      game.goBackOneSpace();
+      renderPlayerTokens();
+      return checkSpecialSpace();   
+
     default:
       endTurn();
   }
 }
 
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 /**
  * Exibe o popup de carta de aprendizagem.
  */
 function showCard() {
-  const card = game.drawCard();
-  if (!card) {
-    alert('No cards left.');
-    endTurn();
-    return;
-  }
-  cardContent.innerHTML = `<h3>${card.title}</h3><p>${card.description}</p>`;
-  cardPopup.classList.remove('hidden');
+  return new Promise(resolve => {
+    const card = game.drawCard();
+    if (!card) {
+      alert('No cards left.');
+      resolve();
+      return;
+    }
+
+    cardContent.innerHTML = `<h3>${card.title}</h3><p>${card.description}</p>`;
+    cardPopup.classList.remove('hidden');
+
+    closeCardPopupButton.onclick = () => {
+      cardPopup.classList.add('hidden');
+      resolve();
+    };
+  });
 }
+
 
 /**
  * Exibe o popup de pergunta.
  */
 function showQuestion() {
-  const question = game.drawQuestion();
-  if (!question) {
-    alert('No questions left.');
-    endTurn();
-    return;
-  }
+  return new Promise(resolve => {
+    const question = game.drawQuestion();
+    if (!question) {
+      alert('No questions left.');
+      resolve();
+      return;
+    }
 
-  questionText.textContent = question.question;
-  questionOptions.innerHTML = '';
+    questionText.textContent = question.question;
+    questionOptions.innerHTML = '';
 
-  question.options.forEach(option => {
-    const btn = document.createElement('button');
-    btn.textContent = option;
-    btn.classList.add('question-option-button');
-    btn.addEventListener('click', () => {
-      const correct = game.answerQuestion(option, question.correctAnswer);
-      alert(correct ? 'Correct! Move 2 spaces forward.' : 'Incorrect! Move 2 spaces backward.');
-      renderPlayerTokens();
-      setTimeout(hideQuestionPopup, 1500);
+    question.options.forEach(option => {
+      const btn = document.createElement('button');
+      btn.textContent = option;
+      btn.classList.add('question-option-button');
+      btn.addEventListener('click', () => {
+        const correct = game.answerQuestion(option, question.correctAnswer);
+        alert(correct ? 'Correct! Move 2 spaces forward.' : 'Incorrect! Move 2 spaces backward.');
+
+        renderPlayerTokens();
+
+        setTimeout(() => {
+          questionPopup.classList.add('hidden');
+          resolve();
+        }, 1500);
+      });
+      questionOptions.appendChild(btn);
     });
-    questionOptions.appendChild(btn);
-  });
 
-  questionPopup.classList.remove('hidden');
+    questionPopup.classList.remove('hidden');
+  });
 }
 
 /**

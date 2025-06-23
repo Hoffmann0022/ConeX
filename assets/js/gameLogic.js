@@ -1,7 +1,3 @@
-const boardSpace = document.querySelector('.board-space');
-const boardSpaceBlue = document.querySelectorAll('.blue');
-const boardSpaceGreen = document.querySelectorAll('.green');
-const boardSpaceOrange = document.querySelectorAll('.orange');
 
 export class Game {
   constructor(players, boardSize = 96) {
@@ -33,30 +29,34 @@ export class Game {
 
   goBackOneSpace() {
     const player = this.getCurrentPlayer();
-    player.position = Math.max(0, player.position - 1);
+    alert('Go back 1 space');
+    player.position = Math.max(player.position - 1, 0);
   }
 
-  isGreen() {
-    if ([...boardSpace].includes(boardSpaceBlue)) {
-      console.log('boardSpace está entre os elementos azuis');
-    }
+  isGreen(position) {
+    const target = document.querySelector(`.board-space[data-index='${position}']`);
+    return target && target.classList.contains('green');
   }
 
   isBlue(position) {
-    return position % 11 === 0;
+    const target = document.querySelector(`.board-space[data-index='${position}']`);
+    return target && target.classList.contains('blue');
   }
 
   isRed(position) {
-    return position % 5 === 0 && !this.isGreen(position) && !this.isBlue(position);
+    const target = document.querySelector(`.board-space[data-index='${position}']`);
+    return target && target.classList.contains('orange');
   }
+
 
   checkSpecialSpace(position) {
     if (position === 0) return 'none';
-    if (this.isGreen()) return 'card';
+    if (this.isGreen(position)) return 'card';
     if (this.isBlue(position)) return 'question';
     if (this.isRed(position)) return 'back';
     return 'none';
   }
+
 
   drawCard() {
     if (this.cards.length === 0) return null;
@@ -71,9 +71,10 @@ export class Game {
   answerQuestion(selected, correct) {
     const player = this.getCurrentPlayer();
     if (selected === correct) {
+      player.position = Math.max(player.position + 2, 0);
       return true;
     } else {
-      player.position = Math.max(player.position - 4, 0);
+      player.position = Math.max(player.position - 2, 0);
       return false;
     }
   }
