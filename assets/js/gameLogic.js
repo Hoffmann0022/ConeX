@@ -1,3 +1,8 @@
+const boardSpace = document.querySelector('.board-space');
+const boardSpaceBlue = document.querySelectorAll('.blue');
+const boardSpaceGreen = document.querySelectorAll('.green');
+const boardSpaceOrange = document.querySelectorAll('.orange');
+
 export class Game {
   constructor(players, boardSize = 96) {
     this.players = players.map(p => ({ ...p, position: 0 }));
