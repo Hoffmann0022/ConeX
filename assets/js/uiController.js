@@ -14,6 +14,10 @@ const questionPopup = document.getElementById('questionPopup');
 const questionText = document.getElementById('questionText');
 const questionOptions = document.getElementById('questionOptions');
 const closeQuestionPopupButton = document.getElementById('closeQuestionPopup');
+const boardSpace = document.querySelector('.board-space');
+const boardSpaceBlue = document.querySelectorAll('.blue');
+const boardSpaceGreen = document.querySelectorAll('.green');
+const boardSpaceOrange = document.querySelectorAll('.orange');
 
 let lastRotation = 0;
 let game;
@@ -66,6 +70,7 @@ function renderPlayerTokens() {
       width: '40px',
       height: '40px',
       margin: '10px',
+      opacity: '0.9',
     });
 
     let targetSpace = player.position === 0

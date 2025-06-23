@@ -31,8 +31,10 @@ export class Game {
     player.position = Math.max(0, player.position - 1);
   }
 
-  isGreen(position) {
-    return position % 7 === 0;
+  isGreen() {
+    if ([...boardSpace].includes(boardSpaceBlue)) {
+      console.log('boardSpace está entre os elementos azuis');
+    }
   }
 
   isBlue(position) {
@@ -45,7 +47,7 @@ export class Game {
 
   checkSpecialSpace(position) {
     if (position === 0) return 'none';
-    if (this.isGreen(position)) return 'card';
+    if (this.isGreen()) return 'card';
     if (this.isBlue(position)) return 'question';
     if (this.isRed(position)) return 'back';
     return 'none';
