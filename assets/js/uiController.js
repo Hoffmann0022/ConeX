@@ -147,9 +147,8 @@ async function checkSpecialSpace() {
   switch (action) {
     case 'card':
       await delay(300);
-      await showCard();             
-      endTurn();                    
-      break;
+      await showCard();                     
+      return endTurn();           
 
     case 'question':
       await delay(300);
@@ -192,6 +191,7 @@ function showCard() {
     closeCardPopupButton.onclick = () => {
       cardPopup.classList.add('hidden');
       resolve();
+      endTurn();
     };
   });
 }
