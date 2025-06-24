@@ -80,8 +80,8 @@
             specialColors.forEach(color => {
                 let count = 0;
                 while (count < colorCount) {
-                    const index = Math.floor(Math.random() * totalSpaces);
-                    if (!colorMap[index]) {
+                    const index = Math.floor(Math.random() * (totalSpaces - 1)); // evita a posição 96
+                    if (index !== 96 && !colorMap[index]) {
                         colorMap[index] = color;
                         count++;
                     }
@@ -97,10 +97,11 @@
                 div.className = `board-space ${color}`;
                 div.setAttribute('data-index', i);
                 div.id = `space-${i}`;
-                div.textContent = i; 
+                div.textContent = i;
                 grid.appendChild(div);
             }
         });
+
     </script>
 
     <script type="module" src="../js/uiController.js"></script>
